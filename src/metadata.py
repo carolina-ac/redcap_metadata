@@ -116,7 +116,7 @@ variables_with_choices.loc[:, 'num_options'] = variables_with_choices['select_ch
 variables_with_choices_df = variables_with_choices[['field_name', 'form_name', 'field_type', 'field_label', 'select_choices_or_calculations', 'num_options']]
 
 # Save variables with choices
-variables_with_choices_df.to_csv(f'{root_directory}/results/variables_with_choices_labels_golaco.csv', index=False, encoding='utf-8')
+variables_with_choices_df.to_csv(f'{root_directory}/results/variables_with_choices_labels.csv', index=False, encoding='utf-8')
 #%%
 # =============================================================================
 # Check the number of labels for the variables of interest 
@@ -177,7 +177,7 @@ def check_missing_variables(variables_set, metadata_df):
 
 #%% 
 
-# Example of a variable set based on your previous variables
+# Example of a variable set 
 variables_set = {
     'sex_bio', 'gender',
     'monthly_income', 'marital_status',
@@ -220,7 +220,7 @@ def generate_missing_variables_report(variables_set, metadata_df, output_directo
     plt.show()
 
 # Usage
-variables_set = (f'{root_directory}/data/difference_comuns_golaco_vs_baylor_not_in_comuns_katia_vs_baylor.csv')
+variables_set = (f'{root_directory}/data/differences1.csv')
 generate_missing_variables_report(variables_set, metadata_df, f'{root_directory}/results/')
 #%%
 def visualize_field_type_distribution(metadata_df, output_directory):
@@ -255,7 +255,7 @@ visualize_field_type_distribution(metadata_df, f'{root_directory}/results/')
 # 1. Use the core function to check for missing variables
 
 # Load the CSV file containing the variable names
-variables_df = pd.read_csv(f'{root_directory}/data/differences.csv')
+variables_df = pd.read_csv(f'{root_directory}/data/differences1.csv')
 
 # Convert the variable column into a set (assuming variable names are in the first column)
 variables_set = set(variables_df.iloc[:, 0])
